@@ -9,4 +9,12 @@
     <PackageReference Include="PowerShellStandard.Library" Version="5.1.0-preview-03" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <LibFiles>$(USERPROFILE)\.nuget\packages\Newtonsoft.Json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</LibFiles>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy $(LibFiles) $(OutputPath) /I /Y" />
+  </Target>
+
 </Project>
