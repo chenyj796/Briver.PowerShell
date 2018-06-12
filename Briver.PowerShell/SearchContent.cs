@@ -64,6 +64,7 @@ namespace Briver.PowerShell
         private bool IsMatch(Regex regex, object content)
         {
             if (content == null) { return false; }
+
             if (content is IFormattable format)
             {
                 if (regex.IsMatch(format.ToString(null, CultureInfo.CurrentCulture) ?? String.Empty))
